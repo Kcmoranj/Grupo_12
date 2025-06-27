@@ -34,6 +34,14 @@ public class Contacto {
         this.nombre = nombre;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
     public String getTelefono() {
         return telefono;
     }
@@ -42,20 +50,46 @@ public class Contacto {
         this.telefono = telefono;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     public List<String> getFotos() {
         return fotos;
     }
 
-    public void agregarFoto(String foto) {
-        this.fotos.add(foto);
-    }
+    public void setFotos(List<String> fotos) {
+        this.fotos = fotos;
+    }   
 
     public List<Contacto> getContactosRelacionados() {
         return contactosRelacionados;
     }
 
+    public void setContactosRelacionados(List<Contacto> contactosRelacionados) {
+        this.contactosRelacionados = contactosRelacionados;
+    }
+    
+    public void agregarFoto(String foto) {
+        this.fotos.add(foto);
+    }
+
     public void agregarContactoRelacionado(Contacto contacto) {
         this.contactosRelacionados.add(contacto);
+    }   
+    
+    @Override
+    public String toString() {//
+        return "Contacto [\nNombre: " + nombre +
+            "\nTeléfono: " + telefono +
+            "\nCorreo: " + correo +
+            "\nDirección: " + direccion +
+            "\nFotos: " + fotos + "]";
     }
+    
 }
 
