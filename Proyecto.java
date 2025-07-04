@@ -8,7 +8,7 @@ package com.mycompany.proyecto;
  *
  * @author kiara
  */
-public class Proyecto {
+public class Proyecto_EDD {
 
     public static void main(String[] args) {
         GestorContactos gestor = new GestorContactos();
