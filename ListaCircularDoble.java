@@ -1,5 +1,5 @@
 
-package com.mycompany.proyecto_edd;
+package Grupo_12;
 
 import java.util.Comparator;
 import java.util.Iterator;
