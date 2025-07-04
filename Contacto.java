@@ -1,4 +1,4 @@
-package com.mycompany.proyecto_edd;
+package Grupo_12;
 
 import java.io.File;
 import java.io.IOException;
