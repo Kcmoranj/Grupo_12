@@ -1,6 +1,7 @@
 
 package com.mycompany.proyecto_edd;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -121,4 +122,6 @@ public class ListaCircularDoble<T> implements Iterable<T> {
         }
     } while (cambiado);
 }
+
+
 }
