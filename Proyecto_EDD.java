@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+package Grupo_12;
 
-package com.mycompany.proyecto;
-
-/**
- *
- * @author kiara
- */
 import java.util.Scanner;
 
-public class Proyecto_EDD {
+public class Grupo_12 {
     public static void main(String[] args) {
 
         GestorContactos gestor = new GestorContactos();
