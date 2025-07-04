@@ -101,5 +101,24 @@ public class ListaCircularDoble<T> implements Iterable<T> {
     cabeza = null;
     tamaño = 0;
 }
-
+    public void ordenar(Comparator<T> comparador) {
+    if (tamaño <= 1) return; // nada que ordenar
+    
+    boolean cambiado;
+    do {
+        cambiado = false;
+        Nodo actual = cabeza;
+        for (int i = 0; i < tamaño - 1; i++) {
+            Nodo siguiente = actual.siguiente;
+            if (comparador.compare(actual.dato, siguiente.dato) > 0) {
+                // Intercambiar datos (no nodos)
+                T temp = actual.dato;
+                actual.dato = siguiente.dato;
+                siguiente.dato = temp;
+                cambiado = true;
+            }
+            actual = actual.siguiente;
+        }
+    } while (cambiado);
+}
 }
