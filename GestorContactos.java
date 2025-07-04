@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class GestorContactos {
-    private ListaCircularDoble<Contacto> contactos;
+     private ListaCircularDoble<Contacto> contactos;
 
     public GestorContactos() {
         contactos = new ListaCircularDoble<>();
@@ -152,4 +152,7 @@ public class GestorContactos {
         e.printStackTrace();
     }
 }
+    public void ordenarContactos(Comparator<Contacto> comparador) {
+        contactos.ordenar(comparador);
+    }
 }
