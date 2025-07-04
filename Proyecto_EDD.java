@@ -10,7 +10,7 @@ package com.mycompany.proyecto;
  */
 public class Proyecto_EDD {
 
-    public static void main(String[] args) {
+     public static void main(String[] args) {
 
         GestorContactos gestor = new GestorContactos();
         gestor.cargarContactosDesdeArchivo();
@@ -38,7 +38,7 @@ public class Proyecto_EDD {
                     crearContacto(gestor, scanner);
                     break;
                 case 2:
-                    gestor.mostrarContactos();
+                    mostrarContactosConOpcionesOrdenamiento(gestor, scanner);
                     break;
                 case 3:
                     gestor.guardarContactosEnArchivo();
@@ -64,6 +64,45 @@ public class Proyecto_EDD {
                     System.out.println("Opción no válida.");
             }
         } while (opcion != 8);
+    }
+    private static void mostrarContactosConOpcionesOrdenamiento(GestorContactos gestor, Scanner scanner) {
+        System.out.println("¿Desea ver los contactos ordenados?");
+        System.out.println("1. Sí");
+        System.out.println("2. No (mostrar sin ordenar)");
+        System.out.print("Opción: ");
+        int opcionOrden = scanner.nextInt();
+        scanner.nextLine();
+
+        if (opcionOrden == 1) {
+            System.out.println("Seleccione el criterio de ordenamiento:");
+            System.out.println("1. Apellido y primer nombre");
+            System.out.println("2. Cantidad de atributos");
+            System.out.println("3. Fecha de cumpleaños más cercana");
+            System.out.print("Opción: ");
+            int criterio = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (criterio) {
+                case 1:
+                    gestor.ordenarContactos(new ComparadorApellidoNombre());
+                    System.out.println("Lista ordenada por apellido y nombre:");
+                    break;
+                case 2:
+                    gestor.ordenarContactos(new ComparadorCantidadAtributos());
+                    System.out.println("Lista ordenada por cantidad de atributos:");
+                    break;
+                case 3:
+                    gestor.ordenarContactos(new ComparadorCumpleanosProximo());
+                    System.out.println("Lista ordenada por cumpleaños más cercano:");
+                    break;
+                default:
+                    System.out.println("Criterio no válido. Se mostrará sin ordenar.");
+            }
+        } else if (opcionOrden != 2) {
+            System.out.println("Opción no válida. Mostrando sin ordenar.");
+        }
+
+        gestor.mostrarContactos();
     }
 
     private static void crearContacto(GestorContactos gestor, Scanner scanner) {
@@ -298,7 +337,6 @@ public class Proyecto_EDD {
     System.out.println("Contacto editado correctamente.");
 }
     
-    
     private static void eliminarContacto(GestorContactos gestor, Scanner scanner) {
     ListaCircularDoble<Contacto> contactos = gestor.getContactos();
 
@@ -320,8 +358,32 @@ public class Proyecto_EDD {
     }
 
     System.out.println("Contacto no encontrado.");
+    }
+    
+    private static void ordenarContactosMenu(GestorContactos gestor, Scanner scanner) {
+    System.out.println("Seleccione el criterio de ordenamiento:");
+    System.out.println("1. Apellido y primer nombre");
+    System.out.println("2. Cantidad de atributos");
+    System.out.println("3. Fecha de cumpleaños más cercana");
+    System.out.print("Opción: ");
+    int opcion = scanner.nextInt();
+    scanner.nextLine();
+
+    switch (opcion) {
+        case 1:
+            gestor.ordenarContactos(new ComparadorApellidoNombre());
+            System.out.println("Lista ordenada por apellido y nombre.");
+            break;
+        case 2:
+            gestor.ordenarContactos(new ComparadorCantidadAtributos());
+            System.out.println("Lista ordenada por cantidad de atributos.");
+            break;
+        case 3:
+            gestor.ordenarContactos(new ComparadorCumpleanosProximo());
+            System.out.println("Lista ordenada por fecha de cumpleaños próxima.");
+            break;
+        default:
+            System.out.println("Opción no válida.");
+    }
+    }
 }
-
-
-}
-
