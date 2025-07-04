@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ListaCircularDoble<T> implements Iterable<T> {
-
     private class Nodo {
         T dato;
         Nodo anterior;
@@ -15,7 +14,6 @@ public class ListaCircularDoble<T> implements Iterable<T> {
             this.dato = dato;
         }
     }
-
     private Nodo cabeza = null;
     private int tamaño = 0;
 
@@ -75,4 +73,33 @@ public class ListaCircularDoble<T> implements Iterable<T> {
             }
         };
     }
+    public void eliminar(int indice) {
+    if (indice < 0 || indice >= tamaño) {
+        throw new IndexOutOfBoundsException("Índice inválido");
+    }
+
+    Nodo actual = cabeza;
+
+    for (int i = 0; i < indice; i++) {
+        actual = actual.siguiente;
+    }
+
+    if (tamaño == 1) {
+        cabeza = null;
+    } else {
+        actual.anterior.siguiente = actual.siguiente;
+        actual.siguiente.anterior = actual.anterior;
+
+        if (actual == cabeza) {
+            cabeza = actual.siguiente;
+        }
+    }
+
+    tamaño--;
+}
+    public void clear() {
+    cabeza = null;
+    tamaño = 0;
+}
+
 }
