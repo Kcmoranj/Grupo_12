@@ -12,7 +12,7 @@ public class ComparadorCantidadAtributos implements Comparator<Contacto> {
         if (c.getDireccion() != null && !c.getDireccion().isEmpty()) count++;
         if (c.getFechaCumpleanos() != null && !c.getFechaCumpleanos().isEmpty()) count++;
         if (c.getFotos() != null && c.getFotos().tamaño() > 0) count++;
-        if (c.getContactosRelacionados() != null && c.getContactosRelacionados().tamaño() > 0) count++;
+        if (c.getContactosRelacionados() != null && c.getContactosRelacionados().size() > 0) count++;
         return count;
     }
 
