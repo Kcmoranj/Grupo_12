@@ -1,4 +1,4 @@
-package com.mycompany.Grupo_12;
+package Grupo_12;
 
 import java.util.Scanner;
 
