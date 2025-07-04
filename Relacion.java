@@ -1,5 +1,4 @@
-
-package com.mycompany.proyecto_edd;
+package Grupo_12;
 
 
 public class Relacion {
