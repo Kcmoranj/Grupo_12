@@ -8,7 +8,7 @@ package com.mycompany.proyecto;
  *
  * @author kiara
  */
-mport java.util.Scanner;
+import java.util.Scanner;
 
 public class Proyecto_EDD {
     public static void main(String[] args) {
