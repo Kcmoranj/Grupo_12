@@ -75,22 +75,18 @@ public class GestorContactos {
                 contacto.setCorreo(partes[4]);
                 contacto.setDireccion(partes[5]);
                 contacto.setFechaCumpleanos(partes[6]);
-
                 for (int i = 7; i < partes.length; i++) {
                     if (partes[i].startsWith("FOTO:")) {
                         contacto.agregarFoto(partes[i].substring(5));
                     }
                 }
-
                 contactos.agregarAlFinal(contacto);
                 mapaNombreContacto.put(contacto.getNombre(), contacto);
             }
-
             // Segunda pasada: relaciones
             for (int idx = 0; idx < lineas.size(); idx++) {
                 String[] partes = lineas.get(idx).split(";");
                 Contacto actual = contactos.obtener(idx);
-
                 for (int i = 7; i < partes.length; i++) {
                     if (partes[i].startsWith("RELACION:")) {
                         String[] relParts = partes[i].substring(9).split(":");
@@ -105,7 +101,6 @@ public class GestorContactos {
                     }
                 }
             }
-
         } catch (IOException e) {
             System.out.println("Error al cargar contactos: " + e.getMessage());
         }
